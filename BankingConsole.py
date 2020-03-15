@@ -3,6 +3,9 @@ from SavingsAccount import SavingsAccount
 from Account import Account
 
 
+# def __main__():
+
+
 class BankingConsole:
     def help(self) -> bool:
         print("""
@@ -31,7 +34,7 @@ class BankingConsole:
             ifscCode = input("Enter Branch IFSC code: ")
             location = input("Enter Branch location: ")
             accountBalance = input("Enter Account starting balance: ")
-            account = SavingsAccount(minimumBalance=500, customer=customer, balance=float(accountBalance),
+            account = SavingsAccount(minimumBalance=500, balance=float(accountBalance), customer=customer,
                                      ifsc=ifscCode, name=bankName, branch=branch, location=location)
             print("Created new Account with ID: %s\n" % account.ID)
         else:
@@ -47,7 +50,7 @@ class BankingConsole:
         contact = input("Enter Customer phone number: ")
         customer = Customer(
             name, address, contact)
-        print("Created new Customer with name: %s\n" % customer.Name)
+        print("Created new Customer with name: %s\n" % customer.name)
 
         return True
 
@@ -92,7 +95,7 @@ class BankingConsole:
     def getBalance(self):
         account = self.askAccountInfoAndGetAccount()
         if account is not None:
-            print("Account Balance is: %s\n" % str(account.getBalance()))
+            print("Account Balance is: %s\n" % str(account.Balance()))
 
         return True
 
